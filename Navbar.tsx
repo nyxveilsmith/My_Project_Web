@@ -32,7 +32,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
               <div className="flex items-center">
-                <img src="/src/assets/Logo.jpg" alt="Megahand Logo" className="h-10" />
+                <img src="/client/src/assets/Logo.jpg" alt="Megahand Logo" className="h-10" />
               </div>
             </Link>
           </div>
