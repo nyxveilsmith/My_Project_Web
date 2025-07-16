@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="col-span-1">
             <div className="flex items-center mb-4">
-              <img src="/src/assets/Logo.jpg" alt="Megahand Logo" className="h-10" />
+              <img src="/assets/Logo.jpg" alt="Megahand Logo" className="h-10" />
             </div>
             <p className="text-gray-400 mb-6">Your trusted source for quality European clothing for the whole family.</p>
             <div className="flex space-x-4">
