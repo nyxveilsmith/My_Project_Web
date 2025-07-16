@@ -21,7 +21,7 @@ const MainCarousel = () => {
     {
       title: "Megahand-a Xoş Gəlmisiniz",
       description: "Keyfiyyətli Avropa geyim mənbəyiniz",
-      backgroundImage: "/src/assets/reklam-vinil-Megahand-90.jpg",
+      backgroundImage: "/client/src/assets/reklam-vinil-Megahand-90.jpg",
       buttonText: "Daha Çox",
       buttonLink: "/interesting",
       buttonColor: "bg-primary hover:bg-blue-600"
@@ -29,7 +29,7 @@ const MainCarousel = () => {
     {
       title: "Mağazalarımızı Kəşf Edin",
       description: "Sizə yaxın filialı tapın",
-      backgroundImage: "/src/assets/Mega-Hand-agac.jpg",
+      backgroundImage: "/client/src/assets/Mega-Hand-agac.jpg",
       buttonText: "Filiallar",
       buttonLink: "/locations",
       buttonColor: "bg-yellow-500 hover:bg-yellow-600"
