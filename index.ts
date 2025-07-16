@@ -9,10 +9,11 @@ import { seedDatabase } from "./seed";
 
 const app = express();
 
-// 🔒 Redirect www.megahand.az to megahand.az to prevent infinite redirects
+// ✅ Redirect www.megahand.az to megahand.az to prevent infinite redirect loops
 app.use((req, res, next) => {
-  if (req.hostname === "www.megahand.az") {
-    return res.redirect(301, "https://megahand.az" + req.originalUrl);
+  const host = req.headers.host || "";
+  if (host.startsWith("www.")) {
+    return res.redirect(301, `https://${host.slice(4)}${req.originalUrl}`);
   }
   next();
 });
@@ -54,17 +55,15 @@ app.use((req, res, next) => {
 (async () => {
   log("Initializing database...");
   try {
-    // Apply database migrations
     log("Pushing schema changes to database...");
     await migrate(drizzle(pool), {
       migrationsFolder: "./migrations",
     });
     log("Schema changes applied successfully.");
-  } catch (error) {
+  } catch (error: any) {
     log("Database migration failed: " + error.message);
   }
 
-  // Seed the database
   await seedDatabase();
 
   const server = await registerRoutes(app);
