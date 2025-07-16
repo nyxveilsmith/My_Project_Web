@@ -32,7 +32,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
           <div className="slide-in">
             <img 
-              src="/src/assets/Mega-Hand-agac.jpg" 
+              src="/assets/Mega-Hand-agac.jpg" 
               alt="Megahand Haqqında" 
               loading="lazy"
               width="800"
