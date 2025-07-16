@@ -8,6 +8,15 @@ import { pool } from "./db";
 import { seedDatabase } from "./seed";
 
 const app = express();
+
+// 🔒 Redirect www.megahand.az to megahand.az to prevent infinite redirects
+app.use((req, res, next) => {
+  if (req.hostname === "www.megahand.az") {
+    return res.redirect(301, "https://megahand.az" + req.originalUrl);
+  }
+  next();
+});
+
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -59,7 +68,7 @@ app.use((req, res, next) => {
   await seedDatabase();
 
   const server = await registerRoutes(app);
-  
+
   if (process.env.NODE_ENV !== "production") {
     await setupVite(app, server);
   } else {
