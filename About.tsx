@@ -2,6 +2,10 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useScrollToTop } from "@/hooks/useScrollToTop"; // ✅ import your hook
+
+export function App() {
+  useScrollToTop(); // ✅ USE IT HERE (this was missing)
 
 const About = () => {
   useEffect(() => {
