@@ -4,6 +4,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { useScrollToTop } from "@/hooks/useScrollToTop"; // ✅ correct import
+
+export function App() {
+  useScrollToTop(); // ✅ call it here
 
 // Pages
 import Home from "./pages/Home";
