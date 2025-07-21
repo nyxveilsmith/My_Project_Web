@@ -4,6 +4,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { useScrollToTop } from "./hooks/useScrollToTop";
+
 
 
 // Pages
@@ -38,6 +40,8 @@ function Router() {
 }
 
 function App() {
+  useScrollToTop();
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
