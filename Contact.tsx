@@ -19,9 +19,9 @@ import {
   FaEnvelope,
   FaPhone,
   FaFacebookF,
-  FaTiktok,
   FaInstagram,
-  FaLinkedinIn
+  FaLinkedinIn,
+  FaWhatsapp
 } from "react-icons/fa";
 
 const formSchema = z.object({
@@ -243,7 +243,7 @@ const Contact = () => {
                       <FaLinkedinIn />
                     </a>
                     <a href="https://www.linkedin.com/showcase/megahand-sumqay%C4%B1t/" target="_blank" rel="noopener noreferrer" className="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-800 transition-colors duration-200">
-                      <FaPhone />
+                      <FaWhatsapp />
                     </a>
                   </div>
                 </div>
