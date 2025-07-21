@@ -5,13 +5,19 @@ import { eq } from "drizzle-orm";
 
 // Function to seed the database with initial data if empty
 export async function seedDatabase() {
+  console.log("Checking if database needs seeding...");
+
+  if (!process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL environment variable is required for database operations");
+  }
+
   try {
     console.log("Checking if database needs seeding...");
-    
+
     // Check if users table is empty
     const userCount = await db.select({ count: users.id }).from(users);
     const hasUsers = userCount.length > 0 && userCount[0].count !== null;
-    
+
     if (!hasUsers) {
       console.log("Seeding admin user...");
       await storage.createUser({
@@ -19,14 +25,14 @@ export async function seedDatabase() {
         password: "password123" // In a real app, this would be hashed
       });
     }
-    
+
     // Check if articles table is empty
     const articleCount = await db.select({ count: articles.id }).from(articles);
     const hasArticles = articleCount.length > 0 && articleCount[0].count !== null;
-    
+
     if (!hasArticles) {
       console.log("Seeding articles...");
-      
+
       // Seed articles
       await storage.createArticle({
         title: "Yeni Mövsüm Kolleksiyası",
@@ -35,7 +41,7 @@ export async function seedDatabase() {
         imageUrl: "https://images.unsplash.com/photo-1581090700227-8e3b68af7c63?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         status: "published"
       });
-      
+
       await storage.createArticle({
         title: "Davamlı Moda Təşəbbüslərimiz",
         summary: "Ətraf mühitə qayğı ilə yanaşaraq hazırladığımız ekoloji təmiz kolleksiyalarımız haqqında məlumat əldə edin...",
@@ -43,7 +49,7 @@ export async function seedDatabase() {
         imageUrl: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         status: "published"
       });
-      
+
       await storage.createArticle({
         title: "Uşaq Geyimləri Bələdçisi",
         summary: "Uşaqlarınız üçün ən rahat və keyfiyyətli geyimləri seçərkən diqqət etməli olduğunuz məqamlar...",
@@ -51,7 +57,7 @@ export async function seedDatabase() {
         imageUrl: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         status: "published"
       });
-      
+
       await storage.createArticle({
         title: "İdman Geyimləri Seçimi",
         summary: "İdmanla məşğul olarkən düzgün geyim seçiminin performansınıza təsiri və əhəmiyyəti...",
@@ -59,7 +65,7 @@ export async function seedDatabase() {
         imageUrl: "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         status: "published"
       });
-      
+
       await storage.createArticle({
         title: "Yay Trendləri 2024",
         summary: "Bu yay mövsümündə öndə olacaq rənglər, modellər və aksessuarlar haqqında hərtərəfli bələdçi...",
@@ -68,14 +74,14 @@ export async function seedDatabase() {
         status: "published"
       });
     }
-    
+
     // Check if locations table is empty
     const locationCount = await db.select({ count: locations.id }).from(locations);
     const hasLocations = locationCount.length > 0 && locationCount[0].count !== null;
-    
+
     if (!hasLocations) {
       console.log("Seeding locations...");
-      
+
       // Seed locations
       await storage.createLocation({
         name: "Megahand Sumqayit #1",
@@ -90,7 +96,7 @@ export async function seedDatabase() {
         longitude: "49.6572",
         status: "active"
       });
-      
+
       await storage.createLocation({
         name: "Megahand Bakı -Q.Qarayev-",
         address: "CW8R+255, Baku",
@@ -103,7 +109,7 @@ export async function seedDatabase() {
         longitude: "49.9387",
         status: "active"
       });
-      
+
       await storage.createLocation({
         name: "Megahand-Gəncə",
         address: "M9H9+X33, Ganja",
@@ -116,7 +122,7 @@ export async function seedDatabase() {
         longitude: "46.3606",
         status: "active"
       });
-      
+
       await storage.createLocation({
         name: "Megahand Bakı-28May",
         address: "140 Shamil Azizbayov, Baku",
@@ -130,7 +136,7 @@ export async function seedDatabase() {
         status: "active"
       });
     }
-    
+
     console.log("Database seeding check complete.");
   } catch (error) {
     console.error("Error seeding database:", error);
