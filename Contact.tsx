@@ -242,6 +242,9 @@ const Contact = () => {
                     <a href="https://www.linkedin.com/showcase/megahand-sumqay%C4%B1t/" target="_blank" rel="noopener noreferrer" className="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-800 transition-colors duration-200">
                       <FaLinkedinIn />
                     </a>
+                    <a href="https://www.linkedin.com/showcase/megahand-sumqay%C4%B1t/" target="_blank" rel="noopener noreferrer" className="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-800 transition-colors duration-200">
+                      <FaPhone />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -261,5 +264,7 @@ const Contact = () => {
     </section>
   );
 };
+
+
 
 export default Contact;
