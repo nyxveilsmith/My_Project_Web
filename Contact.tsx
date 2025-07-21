@@ -234,7 +234,7 @@ const Contact = () => {
                       <FaFacebookF />
                     </a>
                     <a href="https://www.tiktok.com/@megahandsumqayit" target="_blank" rel="noopener noreferrer" className="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition-colors duration-200">
-                      <FaTiktok />
+
                     </a>
                     <a href="https://www.instagram.com/megahandsumqayit/?hl=en" target="_blank" rel="noopener noreferrer" className="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition-colors duration-200">
                       <FaInstagram />
