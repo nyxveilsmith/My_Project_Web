@@ -37,7 +37,7 @@ const MainCarousel = () => {
     {
       title: "Bizimlə Əlaqə",
       description: "Ən son kolleksiyalar və promosyonlardan xəbərdar olun",
-      backgroundImage: "/assets/Logo.jpg",
+      backgroundImage: "/assets/advertisement.jpg",
       buttonText: "Əlaqə",
       buttonLink: "/contact",
       buttonColor: "bg-amber-500 hover:bg-amber-600"
