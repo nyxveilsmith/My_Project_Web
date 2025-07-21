@@ -11,7 +11,7 @@ const getDiscountForToday = (): number => {
   const day = azerbaijanTime.getDay();
   
   // Updated discount system based on actual Megahand Azerbaijan schedule
-  const discounts = [10, 10, 20, 30, 40, 40, 50, 50, 60, 70, 80, 90, 0, 0]; // Sun, Mon, Tue, Wed, Thu, Fri, Sat
+  const discounts = [50, 60, 70, 80, 90, 0, 0, 10, 10, 20, 30, 40, 40, 50]; // Sun, Mon, Tue, Wed, Thu, Fri, Sat
   return discounts[day];
 };
 
