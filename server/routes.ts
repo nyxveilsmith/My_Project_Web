@@ -112,10 +112,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Articles routes
   app.get("/api/articles", async (_req, res) => {
     try {
+      console.log("Fetching articles from database...");
       const articles = await storage.getAllArticles();
+      console.log("Found articles:", articles.length);
+      console.log("Articles data:", articles);
       res.set('Cache-Control', 'public, max-age=300');
       res.json(articles);
     } catch (error) {
+      console.error("Error fetching articles:", error);
       res.status(500).json({ message: "Failed to fetch articles" });
     }
   });
