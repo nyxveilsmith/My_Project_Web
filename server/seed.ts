@@ -5,12 +5,6 @@ import { eq } from "drizzle-orm";
 
 // Function to seed the database with initial data if empty
 export async function seedDatabase() {
-  console.log("Checking if database needs seeding...");
-
-  if (!process.env.DATABASE_URL) {
-    throw new Error("DATABASE_URL environment variable is required for database operations");
-  }
-
   try {
     console.log("Checking if database needs seeding...");
 
