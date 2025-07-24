@@ -41,12 +41,15 @@ app.use((req, res, next) => {
 
 (async () => {
   log("Initializing database...");
-  
-  // Seed the database
-  await seedDatabase();
+  try {
+    await seedDatabase();
+    console.log("[express] Database initialization complete");
+  } catch (error) {
+    console.error("[express] Database initialization failed:", error);
+  }
 
   const server = await registerRoutes(app);
-  
+
   if (process.env.NODE_ENV !== "production") {
     await setupVite(app, server);
   } else {
@@ -58,7 +61,7 @@ app.use((req, res, next) => {
     res.status(500).json({ message: "Internal server error" });
   });
 
-  const port = process.env.PORT || 10000;
+  const port = process.env.PORT || 5000;
   server.listen(port, "0.0.0.0", () => {
     log(`serving on port ${port}`);
   });
