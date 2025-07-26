@@ -170,7 +170,7 @@ const DayProgressCard = () => {
       <div className="absolute -top-5 -left-5 w-20 h-20 bg-red-500 rounded-full flex items-center justify-center transform rotate-[-15deg] shadow-lg">
         <div className="text-white font-bold text-center leading-tight">
           <div className="text-xs">ENDİRİM</div>
-          <div className="text-xl">{discount <= 1 ? "Yeni daxil olma" : `${discount}%`}</div>
+          <div className="text-xl">{discount}%</div>
         </div>
       </div>
       
@@ -182,19 +182,15 @@ const DayProgressCard = () => {
         <div className="flex justify-center mb-4 mt-6">
           <div className="relative w-32 h-32 flex flex-col items-center justify-center bg-yellow-50 rounded-full border-4 border-dashed border-yellow-500">
             <Tag className="text-red-500 mb-1" size={28} />
-            <div className="text-4xl font-bold text-red-600">{discount <= 1 ? "Yeni daxil olma" : `${discount}%`}</div>
-
+            <div className="text-4xl font-bold text-red-600">{discount}%</div>
             <div className="text-xs text-red-500 font-semibold">ENDİRİM</div>
           </div>
         </div>
         
         <div className="bg-blue-50 p-3 rounded-lg mb-4">
           <div className="text-center text-sm text-blue-800 font-medium">
-  {discount <= 1
-    ? "Bütün Megahand mağazalarında bu gün yeni daxil olma günü! Yeni məhsulları qaçırma!"
-    : `Bütün Megahand mağazalarında bugün ${discount}% endirim! Təklif məhdud zaman üçün keçərlidir.`}
-</div>
-
+            Bütün Megahand mağazalarında bugün {discount}% endirim! Təklif məhdud zaman üçün keçərlidir.
+          </div>
         </div>
         
         <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4 justify-center">
