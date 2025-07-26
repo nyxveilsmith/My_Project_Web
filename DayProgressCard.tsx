@@ -11,7 +11,7 @@ const getDiscountForToday = (): number => {
   const day = azerbaijanTime.getDay();
   
   // Updated discount system based on actual Megahand Azerbaijan schedule
-  const discounts = [15, 10, 20, 15, 25, 30, 20]; // Sun, Mon, Tue, Wed, Thu, Fri, Sat
+  const discounts = [50, 50, 60, 70, 80, 90, 0, 0, 10, 10, 20, 30, 40, 40]; // Sun, Mon, Tue, Wed, Thu, Fri, Sat
   return discounts[day];
 };
 
@@ -202,7 +202,7 @@ const DayProgressCard = () => {
           onClick={() => setVisible(false)}
           className="w-full py-2 px-4 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors btn-hover"
         >
-          İndi alış-veriş et
+          Dəvam et
         </button>
       </div>
     </motion.div>
