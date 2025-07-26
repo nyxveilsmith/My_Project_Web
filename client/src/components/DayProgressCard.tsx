@@ -8,7 +8,7 @@ const getDiscountForToday = (): number => {
   const now = new Date();
   const azerbaijanTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Baku" }));
   const day = azerbaijanTime.getDay();
-  const discounts = [50, 50, 60, 70, 80, 90, 0]; // Sun - Sat
+  const discounts = [0, 10, 10, 20, 30, 40, 40, 50, 50, 60, 70, 80, 90, 0]; // Sun - Sat
   return discounts[day];
 };
 
