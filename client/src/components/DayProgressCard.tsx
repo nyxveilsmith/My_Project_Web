@@ -44,7 +44,7 @@ const DayProgressCard = () => {
       start += step;
       setDiscount(start);
       if (start <= 1) {
-        setDisplayDiscount("Yeni daxil olma");
+        setDisplayDiscount("0%");
       } else {
         setDisplayDiscount(start);
       }
