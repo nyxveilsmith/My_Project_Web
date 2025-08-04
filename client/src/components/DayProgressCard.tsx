@@ -3,13 +3,22 @@ import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { X, ShoppingBag, Tag } from 'lucide-react';
 
-// Discount amounts for different days
+// Discount amounts starting from today with 50%
 const getDiscountForToday = (): number => {
   const now = new Date();
   const azerbaijanTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Baku" }));
-  const day = azerbaijanTime.getDay();
-  const discounts = [0, 10, 10, 20, 30, 40, 40, 50, 50, 60, 70, 80, 90, 0]; // Sun - Sat
-  return discounts[day];
+  const today = new Date(azerbaijanTime.getFullYear(), azerbaijanTime.getMonth(), azerbaijanTime.getDate());
+
+  // Set your fixed start date (e.g. Aug 3, 2025 — today assumed 50%)
+  const startDate = new Date(2025, 7, 3); // Month is 0-based (7 = August)
+
+  const msInDay = 1000 * 60 * 60 * 24;
+  const daysSinceStart = Math.floor((today.getTime() - startDate.getTime()) / msInDay);
+
+  const cycle = [50, 50, 60, 70, 80, 90, 10, 20, 30, 0, 0, 10, 20, 30]; // 14-day rotating cycle
+
+  const index = daysSinceStart % cycle.length;
+  return cycle[(index + cycle.length) % cycle.length]; // Handles negative modulo
 };
 
 const triggerConfetti = () => {
@@ -127,7 +136,7 @@ const DayProgressCard = () => {
           <div className="text-center text-sm text-blue-800 font-medium">
             {discount <= 1
               ? "Bütün Megahand mağazalarında bu gün yeni daxil olma günü! Yeni məhsulları qaçırma!"
-              : `Bütün Megahand mağazalarında bugün ${discount}% endirim! Təklif məhdud zaman üçün keçərlidir.`}
+ : `Bütün Megahand mağazalarında bugün ${discount}% endirim! Təklif məhdud zaman üçün keçərlidir.`}
           </div>
         </div>
 
