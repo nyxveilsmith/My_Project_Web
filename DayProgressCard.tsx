@@ -3,22 +3,32 @@ import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { X, ShoppingBag, Tag } from 'lucide-react';
 
-// Discount amounts starting from today with 50%
+// Discount amounts starting from today as first 40% day
 const getDiscountForToday = (): number => {
   const now = new Date();
-  const azerbaijanTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Baku" }));
-  const today = new Date(azerbaijanTime.getFullYear(), azerbaijanTime.getMonth(), azerbaijanTime.getDate());
+  const azerbaijanTime = new Date(
+    now.toLocaleString("en-US", { timeZone: "Asia/Baku" })
+  );
+  const today = new Date(
+    azerbaijanTime.getFullYear(),
+    azerbaijanTime.getMonth(),
+    azerbaijanTime.getDate()
+  );
 
-  // Set your fixed start date (e.g. Aug 3, 2025 — today assumed 50%)
-  const startDate = new Date(2025, 7, 3); // Month is 0-based (7 = August)
+  // Correct permanent cycle
+  const cycle = [0, 0, 10, 10, 20, 30, 40, 40, 50, 50, 60, 70, 80, 90];
+
+  // Today = index 6 (first 40% day)
+  const startDate = new Date(today);
+  startDate.setDate(today.getDate() - 6);
 
   const msInDay = 1000 * 60 * 60 * 24;
-  const daysSinceStart = Math.floor((today.getTime() - startDate.getTime()) / msInDay);
+  const daysSinceStart = Math.floor(
+    (today.getTime() - startDate.getTime()) / msInDay
+  );
 
-  const cycle = [50, 50, 60, 70, 80, 90, 10, 20, 30, 0, 0, 10, 20, 30]; // 14-day rotating cycle
-
-  const index = daysSinceStart % cycle.length;
-  return cycle[(index + cycle.length) % cycle.length]; // Handles negative modulo
+  const index = ((daysSinceStart % cycle.length) + cycle.length) % cycle.length;
+  return cycle[index];
 };
 
 const triggerConfetti = () => {
@@ -136,7 +146,7 @@ const DayProgressCard = () => {
           <div className="text-center text-sm text-blue-800 font-medium">
             {discount <= 1
               ? "Bütün Megahand mağazalarında bu gün yeni daxil olma günü! Yeni məhsulları qaçırma!"
- : `Bütün Megahand mağazalarında bugün ${discount}% endirim! Təklif məhdud zaman üçün keçərlidir.`}
+              : `Bütün Megahand mağazalarında bugün ${discount}% endirim! Təklif məhdud zaman üçün keçərlidir.`}
           </div>
         </div>
 
