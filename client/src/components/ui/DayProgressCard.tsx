@@ -3,13 +3,32 @@ import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { X, ShoppingBag, Tag } from 'lucide-react';
 
-// Discount amounts for different days
+// Discount amounts starting from today as first 40% day
 const getDiscountForToday = (): number => {
   const now = new Date();
-  const azerbaijanTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Baku" }));
-  const day = azerbaijanTime.getDay();
-  const discounts = [0, 10, 10, 20, 30, 40, 40, 50, 50, 60, 70, 80, 90, 0]; // Sun - Sat
-  return discounts[day];
+  const azerbaijanTime = new Date(
+    now.toLocaleString("en-US", { timeZone: "Asia/Baku" })
+  );
+  const today = new Date(
+    azerbaijanTime.getFullYear(),
+    azerbaijanTime.getMonth(),
+    azerbaijanTime.getDate()
+  );
+
+  // Correct permanent cycle
+  const cycle = [0, 0, 10, 10, 20, 30, 40, 40, 50, 50, 60, 70, 80, 90];
+
+  // Today = index 6 (first 40% day)
+  const startDate = new Date(today);
+  startDate.setDate(today.getDate() - 6);
+
+  const msInDay = 1000 * 60 * 60 * 24;
+  const daysSinceStart = Math.floor(
+    (today.getTime() - startDate.getTime()) / msInDay
+  );
+
+  const index = ((daysSinceStart % cycle.length) + cycle.length) % cycle.length;
+  return cycle[index];
 };
 
 const triggerConfetti = () => {
