@@ -8,7 +8,7 @@ import { useLocations } from "@/hooks/useLocations";
 import LocationCard from "@/components/LocationCard";
 import { DownloadButton } from "@/components/DownloadButton";
 import { Loader2 } from "lucide-react";
-import DayProgressCard from "@/components/DayProgressCard";
+
 
 
 // Function to return the correct Google Maps URL for each location
@@ -182,7 +182,6 @@ const Home = () => {
         </div>
       </section>
       
-      <DayProgressCard />
     </>
   );
 };
