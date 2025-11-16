@@ -29,7 +29,7 @@ const About = () => {
     <section className="py-8 sm:py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 slide-in">Megahand Haqqında</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 slide-in">Asiman Geydi</h1>
           <div className="w-16 sm:w-20 h-1 bg-primary mx-auto mb-4 sm:mb-8 slide-in"></div>
         </div>
         
