@@ -84,7 +84,7 @@ const Home = () => {
             <div className="slide-in">
               <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">Bizim Missiyamız</h3>
               <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-                MegaHand.az müştərilərimiz üçün keyfiyyətli Avropa geyimləri təqdim etməyə həsr olunub. Biz sizin məlumatlı və ilhamlı olmağınız üçün ən cəlbedici məqalələr və xəbərləri təqdim edirik.
+                 Nureddin Qurbanli MegaHand.az müştərilərimiz üçün keyfiyyətli Avropa geyimləri təqdim etməyə həsr olunub. Biz sizin məlumatlı və ilhamlı olmağınız üçün ən cəlbedici məqalələr və xəbərləri təqdim edirik.
               </p>
               
               <Link href="/about">
