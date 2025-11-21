@@ -84,7 +84,7 @@ const Home = () => {
             <div className="slide-in">
               <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">Bizim Missiyamız</h3>
               <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-                 Nureddin Qurbanli MegaHand.az müştərilərimiz üçün keyfiyyətli Avropa geyimləri təqdim etməyə həsr olunub. Biz sizin məlumatlı və ilhamlı olmağınız üçün ən cəlbedici məqalələr və xəbərləri təqdim edirik.
+                  MegaHand.az müştərilərimiz üçün keyfiyyətli Avropa geyimləri təqdim etməyə həsr olunub. Biz sizin məlumatlı və ilhamlı olmağınız üçün ən cəlbedici məqalələr və xəbərləri təqdim edirik.
               </p>
               
               <Link href="/about">
@@ -104,7 +104,7 @@ const Home = () => {
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 slide-in">Maraqlı Məqalələr</h2>
             <div className="w-16 sm:w-20 h-1 bg-primary mx-auto mb-4 sm:mb-8 slide-in"></div>
             <p className="text-sm sm:text-base text-gray-600 max-w-3xl mx-auto slide-in">
-              Nureddin Qurbanli Sizi məlumatlandıracaq və ilhamlandıracaq ən son məqalələrimiz ilə tanış olun.
+              Sizi məlumatlandıracaq və ilhamlandıracaq ən son məqalələrimiz ilə tanış olun.
             </p>
           </div>
           
