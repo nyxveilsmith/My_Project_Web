@@ -128,7 +128,7 @@ const About = () => {
           
           <Link href="/contact">
             <Button className="px-4 sm:px-6 py-2 sm:py-3 bg-primary text-white rounded-lg font-medium btn-hover text-sm sm:text-base">
-              Bizimlə Əlaqə Saxlayın
+              Bizimlə Əlaqə Saxlayın Nureddin Qurbanli
             </Button>
           </Link>
         </div>
